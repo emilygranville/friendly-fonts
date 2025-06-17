@@ -1,0 +1,3 @@
+# Friendly Fonts
+
+When researching how to make accessible websites, I stumbled upon [this, electricalice's ArchiveOfOurOwn skin](https://github.com/electricalice/Ao3-dyslexia), which is custom CSS to make reading easier for dyslexic users of the popular site Archive Of Our Own. Once I saw how helpful people found this, I realized that other websites could also use edits to their CSS to make them more accessible. With this inspiration, I began working on an extension to edit the CSS of the websites a user goes to based on [the guildelines of the British Dyslexia Association](https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide).

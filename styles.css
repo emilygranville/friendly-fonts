@@ -1,0 +1,28 @@
+/*
+Inspired by https://github.com/electricalice/Ao3-dyslexia
+and 
+https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide
+*/
+
+* {
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      word-spacing: 0.06rem;
+      letter-spacing: 0.02rem;
+      font-size: 100%;
+      line-height: 2;
+}
+
+
+p {
+    font-size: 1.2rem !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 2em !important;
+}
+

@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+ 
+  "name": "Friendly Fonts",
+  "version": "1.0",
+  "description": "Extension to change the font to be easy to read",
+ 
+  "content_scripts": [{
+    "css": ["styles.css"], 
+    "matches": ["<all_urls>"]
+  }]
+ 
+}
