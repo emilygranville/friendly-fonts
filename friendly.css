@@ -1,7 +1,5 @@
-/*
-Inspired by https://github.com/electricalice/Ao3-dyslexia
-and 
-https://www.bdadyslexia.org.uk/advice/employers/creating-a-dyslexia-friendly-workplace/dyslexia-friendly-style-guide
+/**
+* This is the CSS added to the online websites
 */
 
 * {
@@ -23,6 +21,6 @@ h3,
 h4,
 h5,
 h6 {
-    font-size: 2em !important;
+    font-size: 2rem !important;
 }
 

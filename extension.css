@@ -1,0 +1,12 @@
+/**
+* This is the CSS for the extension itself
+*/
+
+body {
+    min-width: 400px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    word-spacing: 0.06rem;
+    letter-spacing: 0.02rem;
+    font-size: 100%;
+    line-height: 2;
+}

@@ -1,13 +1,17 @@
 {
-  "manifest_version": 3,
+    "manifest_version": 3,
  
-  "name": "Friendly Fonts",
-  "version": "1.0",
-  "description": "Extension to change the font to be easy to read",
+    "name": "Friendly Fonts",
+    "version": "1.0",
+    "description": "An extension to edit a website's CSS to make it more friendly for dyslexic users.",
  
-  "content_scripts": [{
-    "css": ["styles.css"], 
+    "action": {
+        "default_popup": "index.html"
+    },
+
+    "content_scripts": [{
+    "css": ["friendly.css"], 
     "matches": ["<all_urls>"]
-  }]
- 
+    }]
+
 }
