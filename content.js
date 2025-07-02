@@ -16,6 +16,9 @@ chrome.runtime.onMessage.addListener((message) => {
     }
 });
 
+// senders
+chrome.runtime.sendMessage({action: "start"});
+
 // functions
 function toggleStyle(isEnabled) {
     if(isEnabled) {

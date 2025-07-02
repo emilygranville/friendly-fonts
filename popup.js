@@ -13,5 +13,5 @@ port.onMessage.addListener((message) => {
 });
 
 ON_BTN.addEventListener("change", () => {
-    port.postMessage({action: "toggleEnabled"});
+    port.postMessage({action: "toggleEnabled", isEnabled: ON_BTN.checked});
 });

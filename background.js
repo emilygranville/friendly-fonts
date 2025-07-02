@@ -16,7 +16,8 @@ chrome.runtime.onConnect.addListener((port) => {
         port.onMessage.addListener((message) => {
             console.log("Received from popup:", message);
             if (message.action === "toggleEnabled") {
-                isEnabled = !isEnabled;
+                isEnabled = message.isEnabled;
+                saveIsEnabled();
                 notifyContentIsEnabled();
             }
         });
@@ -28,29 +29,51 @@ chrome.runtime.onConnect.addListener((port) => {
     }
 });
 
+// content listener
+chrome.runtime.onMessage.addListener((message) => {
+    if (message.action === "start") {
+        onloadFunctions();
+    }
+});
+
 // senders
 function notifyPopupIsEnabled() {
     console.log("sending message to popup");
     if (popupPort) {
         popupPort.postMessage({type: "enabled", isEnabled: isEnabled});
+    } else {
+        console.log("Popup port not open");
     }
 }
 
 function notifyContentIsEnabled() {
     console.log("sending message to content");
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    console.log("isEnabled: " + isEnabled);
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, 
             {type: "enabled", isEnabled: isEnabled});
     });
 }
 
 // on load actions
-chrome.runtime.onConnect.addListener((port) => {
-    let isEnabled = true;
+function onloadFunctions() {
+    loadIsEnabled();
+    console.log("load isEnabled: " + isEnabled);
+    notifyContentIsEnabled();
+    notifyPopupIsEnabled();
+}
+
+// other functions
+function saveIsEnabled() {
+    console.log("save isEnabled: "+isEnabled);
+    if (typeof window !== "undefined") {
+        localStorage.setItem("isEnabled", JSON.stringify(isEnabled));
+    }
+}
+
+function loadIsEnabled() {
     if (typeof window !== "undefined") {
         let jsonIsEnabled = localStorage.getItem("isEnabled");
         isEnabled = JSON.parse(jsonIsEnabled);
     }
-    notifyContentIsEnabled();
-    notifyPopupIsEnabled();
-});
+}
