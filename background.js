@@ -67,13 +67,13 @@ function onloadFunctions() {
 function saveIsEnabled() {
     console.log("save isEnabled: "+isEnabled);
     if (typeof window !== "undefined") {
-        localStorage.setItem("isEnabled", JSON.stringify(isEnabled));
+        chrome.storage.local.setItem("isEnabled", JSON.stringify(isEnabled));
     }
 }
 
 function loadIsEnabled() {
     if (typeof window !== "undefined") {
-        let jsonIsEnabled = localStorage.getItem("isEnabled");
+        let jsonIsEnabled = chrome.storage.local.getItem("isEnabled");
         isEnabled = JSON.parse(jsonIsEnabled);
     }
 }
