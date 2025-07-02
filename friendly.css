@@ -10,33 +10,34 @@
 }
 
 /*  for some reason * doesn't always catch everything */
-body, p, span, div, h1, h2, h3, h4, h5, h6, li, a, td, th, input, textarea, button {
+body, p, span, div, h1, h2, h3, h4, h5, h6, li, a, 
+td, th, input, textarea, button, strong {
     font-family: "Trebuchet MS", Arial, sans-serif !important;
 }
 
 /*  for extra size tweaking for the future:
     https://stackoverflow.com/a/70720104/214446
 */
-p, button, input, textarea {
+p, a, button, input, textarea, ol, ul {
     font-size: 1.2em !important;
 }
 
-a {
-    font-size: 1.1em !important;
-}
-
-code, span {
+code, span, strong, li {
     font-size: 1.2rem !important;
 }
 
 h1 {
-    font-size: 3em !important;
+    font-size: 2.5em !important;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-size: 1.8em !important;
+h2 {
+    font-size: 2.25em !important;
+}
+
+h3 {
+    font-size: 1.755em !important;
+}
+
+h4, h5, h6 {
+    font-size: 1.44em !important;
 }
