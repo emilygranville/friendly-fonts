@@ -8,6 +8,10 @@ friendly_link.href = chrome.runtime.getURL("friendly.css");
 friendly_link.rel = "stylesheet";
 friendly_link.type = "text/css";
 
+const liberation_mono = document.createElement("link");
+liberation_mono.href = "https://fonts.cdnfonts.com/css/liberation-mono";
+liberation_mono.rel = "stylesheet";
+
 // variables
 let curApplied;
 
@@ -21,6 +25,7 @@ chrome.runtime.onMessage.addListener((message) => {
 
 // senders
 chrome.runtime.sendMessage({action: "start"});
+target.appendChild(liberation_mono);
 
 // functions
 function toggleStyle(isEnabled) {

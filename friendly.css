@@ -26,6 +26,10 @@ code, span, strong, li {
     font-size: 1.2rem !important;
 }
 
+code {
+    font-family: 'Liberation Mono', Courier, monospace !important;
+}
+
 h1 {
     font-size: 2.5em !important;
 }
