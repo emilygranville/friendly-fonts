@@ -5,13 +5,22 @@
     "version": "1.0",
     "description": "An extension to edit a website's CSS to make it more friendly for dyslexic users.",
  
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self';"
+    },
+
     "action": {
         "default_popup": "index.html"
     },
 
     "content_scripts": [{
-    "css": ["friendly.css"], 
-    "matches": ["<all_urls>"]
-    }]
+        "js": ["content.js"],
+        "matches": ["<all_urls>"],
+        "run_at": "document_idle"
+    }],
 
+    "web_accessible_resources": [{
+        "resources": ["friendly.css"],
+        "matches": ["<all_urls>"]
+    }]
 }

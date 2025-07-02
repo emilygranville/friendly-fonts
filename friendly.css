@@ -3,15 +3,19 @@
 */
 
 * {
-      font-family: "Trebuchet MS", Arial, sans-serif;
-      word-spacing: 0.06rem;
-      letter-spacing: 0.02rem;
-      font-size: 100%;
-      line-height: 2;
+    font-family: "Trebuchet MS", Arial, sans-serif !important;
+    word-spacing: 0.06rem;
+    letter-spacing: 0.02rem;
+    font-size: 100%;
+    line-height: 2;
 }
 
+/* for some reason * doesn't always catch everything */
+body, p, span, div, h1, h2, h3, h4, h5, h6, li, a, td, th, input, textarea, button {
+    font-family: "Trebuchet MS", Arial, sans-serif !important;
+}
 
-p {
+p, a {
     font-size: 1.2rem !important;
 }
 
@@ -21,6 +25,5 @@ h3,
 h4,
 h5,
 h6 {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
 }
-
