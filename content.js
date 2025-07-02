@@ -10,7 +10,7 @@ friendly_link.type = "text/css";
 
 // listeners
 chrome.runtime.onMessage.addListener((message) => {
-    console.log("got message");
+    console.log("Received message from background");
     if (message.type === "enabled") {
         toggleStyle(message.isEnabled);
     }

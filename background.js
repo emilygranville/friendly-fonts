@@ -39,7 +39,6 @@ chrome.runtime.onMessage.addListener((message) => {
 
 // senders
 function notifyPopupIsEnabled() {
-    console.log("sending message to popup");
     if (popupPort) {
         popupPort.postMessage({type: "enabled", isEnabled: isEnabled});
     } else {
@@ -48,8 +47,6 @@ function notifyPopupIsEnabled() {
 }
 
 function notifyContentIsEnabled() {
-    console.log("sending message to content");
-    console.log("isEnabled: " + isEnabled);
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
         chrome.tabs.sendMessage(tabs[0].id, 
             {type: "enabled", isEnabled: isEnabled});
@@ -59,13 +56,11 @@ function notifyContentIsEnabled() {
 // on load actions
 function onloadFunctions() {
     loadIsEnabled();
-    console.log("load isEnabled: " + isEnabled);
     notifyContentIsEnabled();
 }
 
 // other functions
 function saveIsEnabled() {
-    console.log("save isEnabled: "+isEnabled);
     if (typeof window !== "undefined") {
         chrome.storage.local.setItem("isEnabled", JSON.stringify(isEnabled));
     }
@@ -76,7 +71,6 @@ function loadIsEnabled() {
         let jsonIsEnabled = chrome.storage.local.getItem("isEnabled");
         isEnabled = JSON.parse(jsonIsEnabled);
     }
-    console.log("from load: "+isEnabled);
     if (typeof isEnabled === "undefined") {
         isEnabled = true;
         saveIsEnabled();
