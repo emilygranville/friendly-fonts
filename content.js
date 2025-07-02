@@ -8,11 +8,15 @@ friendly_link.href = chrome.runtime.getURL("friendly.css");
 friendly_link.rel = "stylesheet";
 friendly_link.type = "text/css";
 
+// variables
+let curApplied;
+
 // listeners
 chrome.runtime.onMessage.addListener((message) => {
     console.log("Received message from background");
     if (message.type === "enabled") {
         toggleStyle(message.isEnabled);
+        curApplied = message.isEnabled;
     }
 });
 
@@ -21,9 +25,9 @@ chrome.runtime.sendMessage({action: "start"});
 
 // functions
 function toggleStyle(isEnabled) {
-    if(isEnabled) {
+    if(isEnabled && !curApplied) {
         target.appendChild(friendly_link);
-    } else {
+    } else if (curApplied && !isEnabled) {
         try {
             target.removeChild(friendly_link);
         } catch (error) {
