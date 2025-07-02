@@ -4,8 +4,8 @@
 
 * {
     font-family: "Trebuchet MS", Arial, sans-serif !important;
-    word-spacing: 0.06rem;
-    letter-spacing: 0.02rem;
+    word-spacing: 0.06em;
+    letter-spacing: 0.02em;
     font-size: 100%;
     line-height: 2;
 }
@@ -16,7 +16,7 @@ body, p, span, div, h1, h2, h3, h4, h5, h6, li, a, td, th, input, textarea, butt
 }
 
 p, a {
-    font-size: 1.2rem !important;
+    font-size: 1.2em !important;
 }
 
 h1,
@@ -25,5 +25,5 @@ h3,
 h4,
 h5,
 h6 {
-    font-size: 1.8rem !important;
+    font-size: 1.8em !important;
 }
