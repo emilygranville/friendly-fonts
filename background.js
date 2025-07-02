@@ -11,7 +11,7 @@ chrome.runtime.onConnect.addListener((port) => {
     if (port.name === "popup") {
         console.log("Popup connected");
         popupPort = port;
-        notifyPopupIsEnabled()
+        notifyPopupIsEnabled();
 
         // Handle incoming messages from the popup
         port.onMessage.addListener((message) => {
