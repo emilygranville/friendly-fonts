@@ -17,8 +17,12 @@ body, p, span, div, h1, h2, h3, h4, h5, h6, li, a, td, th, input, textarea, butt
 /*  for extra size tweaking for the future:
     https://stackoverflow.com/a/70720104/214446
 */
-p, a {
+p, button, input, textarea {
     font-size: 1.2em !important;
+}
+
+a {
+    font-size: 1.1em !important;
 }
 
 code, span {
