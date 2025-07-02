@@ -8,24 +8,23 @@ friendly_link.href = chrome.runtime.getURL("friendly.css");
 friendly_link.rel = "stylesheet";
 friendly_link.type = "text/css";
 
-// on load actions
-let isEnabled = true;
-
-target.appendChild(friendly_link);
-
 // listeners
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.action === "toggle CSS") {
-        toggleStyle();
+chrome.runtime.onMessage.addListener((message) => {
+    console.log("got message");
+    if (message.type === "enabled") {
+        toggleStyle(message.isEnabled);
     }
 });
 
 // functions
-function toggleStyle() {
+function toggleStyle(isEnabled) {
     if(isEnabled) {
-        target.removeChild(friendly_link);
-    } else {
         target.appendChild(friendly_link);
+    } else {
+        try {
+            target.removeChild(friendly_link);
+        } catch (error) {
+            console.log("Cannot remove child--may not be there");
+        }
     }
-    isEnabled = !isEnabled;
 }

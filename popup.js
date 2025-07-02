@@ -2,12 +2,16 @@
 // constants
 const ON_BTN = document.getElementById("on_btn");
 
-// on load actions
-ON_BTN.checked = true;
+const port = chrome.runtime.connect({name: "popup"});
 
 // listeners
+port.onMessage.addListener((message) => {
+    console.log("Received from background:", message);
+    if (message.type === "enabled") {
+        ON_BTN.checked = message.isEnabled;
+    }
+});
+
 ON_BTN.addEventListener("change", () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, { action: "toggle CSS" });
-    });
-})
+    port.postMessage({action: "toggleEnabled"});
+});
