@@ -11,6 +11,7 @@ chrome.runtime.onConnect.addListener((port) => {
     if (port.name === "popup") {
         console.log("Popup connected");
         popupPort = port;
+        notifyPopupIsEnabled()
 
         // Handle incoming messages from the popup
         port.onMessage.addListener((message) => {
@@ -60,7 +61,6 @@ function onloadFunctions() {
     loadIsEnabled();
     console.log("load isEnabled: " + isEnabled);
     notifyContentIsEnabled();
-    notifyPopupIsEnabled();
 }
 
 // other functions
@@ -75,5 +75,10 @@ function loadIsEnabled() {
     if (typeof window !== "undefined") {
         let jsonIsEnabled = chrome.storage.local.getItem("isEnabled");
         isEnabled = JSON.parse(jsonIsEnabled);
+    }
+    console.log("from load: "+isEnabled);
+    if (typeof isEnabled === "undefined") {
+        isEnabled = true;
+        saveIsEnabled();
     }
 }
