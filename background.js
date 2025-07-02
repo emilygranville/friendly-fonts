@@ -37,6 +37,15 @@ chrome.runtime.onMessage.addListener((message) => {
     }
 });
 
+// tab switch listener
+chrome.tabs.onActivated.addListener((activeInfo) => {
+    console.log("tab switched");
+    chrome.tabs.get(activeInfo.tabId, (tab) => {
+        chrome.tabs.sendMessage(tab.id, 
+            {type: "enabled", isEnabled: isEnabled});
+    });
+});
+
 // senders
 function notifyPopupIsEnabled() {
     if (popupPort) {
