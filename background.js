@@ -71,17 +71,18 @@ function onloadFunctions() {
 // other functions
 function saveIsEnabled() {
     if (typeof window !== "undefined") {
-        chrome.storage.local.setItem("isEnabled", JSON.stringify(isEnabled));
+        chrome.storage.local.set("ffIsEnabled", isEnabled);
     }
 }
 
 function loadIsEnabled() {
     if (typeof window !== "undefined") {
-        let jsonIsEnabled = chrome.storage.local.getItem("isEnabled");
-        isEnabled = JSON.parse(jsonIsEnabled);
-    }
-    if (typeof isEnabled === "undefined") {
-        isEnabled = true;
-        saveIsEnabled();
+        chrome.storage.local.get("ffIsEnabled", (result) => {
+            isEnabled = result.ffIsEnabled;
+            if (typeof isEnabled === "undefined") {
+                isEnabled = true;
+                saveIsEnabled();
+            }
+        });
     }
 }
